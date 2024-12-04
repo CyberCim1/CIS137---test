@@ -1,7 +1,7 @@
 variable "resource_group_location" {
   type        = string
   description = "Location for all resources."
-  default     = "eastus"
+  default     = "westus"
 }
 
 variable "resource_group_name_prefix" {
@@ -69,5 +69,24 @@ variable "key_size" {
 variable "msi_id" {
   type        = string
   description = "The Managed Service Identity ID. If this value isn't null (the default), 'data.azurerm_client_config.current.object_id' will be set to this value."
+  default     = null
+}
+
+variable "sql_db_name" {
+  type        = string
+  description = "The name of the SQL Database."
+  default     = "SampleDB"
+}
+
+variable "admin_username" {
+  type        = string
+  description = "The administrator username of the SQL logical server."
+  default     = "azureadmin"
+}
+
+variable "admin_password" {
+  type        = string
+  description = "The administrator password of the SQL logical server."
+  sensitive   = true
   default     = null
 }
